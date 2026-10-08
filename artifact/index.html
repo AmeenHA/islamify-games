@@ -175,10 +175,20 @@ footer .brand b{font-size:21px}
 .cols h4{margin:0 0 16px;font:700 13px/1 var(--sans);letter-spacing:1.04px;color:var(--bronze)}
 .cols ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;font:400 15px/20px var(--ui);color:rgba(17,33,58,.82)}
 .cols a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
-.cols .email{user-select:all;word-break:break-all}
+.cols .email{word-break:break-all}
 .legal{margin-top:42px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:14px;font:400 13px/18px var(--ui);color:rgba(17,33,58,.5)}
 .legal span{display:flex;align-items:center;gap:8px;color:rgba(17,33,58,.78)}
 .legal svg{width:16px;height:16px;color:var(--gold-deep)}
+footer{width:100%}
+/* desktop: wider two-column footer (tablet and phone keep the stacked layout) */
+@media (min-width:1024px){
+  .foot-rule{max-width:1200px}
+  footer{max-width:1120px;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:80px;align-items:start}
+  footer > .brand,footer > .tag,footer > .mail{grid-column:1}
+  footer > .tag{max-width:420px}
+  footer > .cols{grid-column:2;grid-row:1 / span 3;margin-top:0;gap:96px}
+  footer > .legal{grid-column:1 / -1;flex-direction:row;justify-content:space-between;align-items:center}
+}
 
 /* ---------- responsive ---------- */
 @media (max-width:860px){
@@ -311,7 +321,7 @@ footer .brand b{font-size:21px}
       </a>
       <div class="cols">
         <div><h4>KALIMA CLASH</h4><ul><li><a href="#how">How it plays</a></li><li><a href="#features">Features</a></li></ul></div>
-        <div><h4>CONTACT</h4><ul><li class="email">KalimaClash@IslamifyGames.com</li></ul></div>
+        <div><h4>CONTACT</h4><ul><li class="email"><a href="mailto:KalimaClash@IslamifyGames.com">KalimaClash@IslamifyGames.com</a></li></ul></div>
       </div>
       <div class="legal">
         <div>© 2026 Islamify Games</div>
