@@ -7,3 +7,7 @@ Landing page for Kalima Clash by Islamify Games, hosted on Netlify.
 - Netlify runs `python3 build.py` on every push to `main` and publishes `site/` (settings in `netlify.toml`).
 
 To update the site: replace `artifact/index.html` and commit to `main`. Netlify redeploys automatically.
+
+## Auto-sync from Claude
+
+A Claude Code Routine checks the artifact (https://claude.ai/artifact/CkSU8vjFANq7Lj9sQ8PKWu) every hour. If it changed, it downloads the page, runs `python3 sync_artifact.py <downloaded file>` (which strips the wrapper claude.ai adds when publishing), checks that `build.py` still succeeds, and commits `artifact/index.html` to `main`. Netlify then redeploys.
